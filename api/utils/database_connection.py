@@ -2,7 +2,7 @@ import urllib.parse
 
 from pymongo import MongoClient
 
-from config import MONGO_PWD, MONGO_USER
+from api.config import MONGO_PWD, MONGO_USER
 
 username = urllib.parse.quote_plus(MONGO_USER)
 password = urllib.parse.quote_plus(MONGO_PWD)
