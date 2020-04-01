@@ -41,7 +41,7 @@ async def read_general_data(date: str):
 
     return {"data": {
         'region': 'Brasil',
-        'state': None,
+        'state': 'Brasil',
         'date': br_date,
         'new_cases': total_new_cases,
         'acumulated_cases': total_acumulated_cases,
