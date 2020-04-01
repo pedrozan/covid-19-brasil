@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from utils.database_connection import get_connection
-from utils.helpers import to_br_date
+from api.utils.database_connection import get_connection
+from api.utils.helpers import to_br_date
 from pydantic import BaseModel
 
 router = APIRouter()
