@@ -13,7 +13,7 @@ headers_translations = {
     "casosNovos": "new_cases",
     "casosAcumulados": "acumulated_cases",
     "obitosNovos": "new_deaths",
-    "obitosAcumulado": "acumulated_deaths",
+    "obitosAcumulados": "acumulated_deaths",
 }
 
 
