@@ -137,4 +137,4 @@ async def read_state_data(date: str, region: str, state: str):
     for res in result:
         del res["_id"]
 
-    return {"data": {"separated": result}}
+    return {"data": result}
