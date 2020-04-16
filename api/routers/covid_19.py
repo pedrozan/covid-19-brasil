@@ -32,6 +32,10 @@ class RegionModel(BaseModel):
     data: RegionData
 
 
+class StateModel(BaseModel):
+    data: List[Data]
+
+
 class ResponseArray(BaseModel):
     data: List[Data] = []
 
@@ -116,3 +120,21 @@ async def read_region_data(date: str, region: str):
     }
 
     return {"data": {"separated": result, "accumulated": accumulated}}
+
+
+@router.get(
+    "/covid-19/{date}/{region}/{state}", tags=["covid-19"], response_model=StateModel
+)
+async def read_state_data(date: str, region: str, state: str):
+    db = get_connection()
+    collection_name = f"situation_{date}"
+    br_date = to_br_date(date)
+    final_result = db[collection_name].find(
+        {"date": br_date, "region": region, "state": state}
+    )
+    result = [r for r in final_result]
+
+    for res in result:
+        del res["_id"]
+
+    return {"data": {"separated": result}}
